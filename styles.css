@@ -1,0 +1,14 @@
+.senaResultBox {
+    background-color: darkgreen;
+    color: white;
+    font-weight: bolder;
+    font-size:large;
+    padding: 10px;
+    border-radius: 100%;
+}
+
+
+
+body{
+    background-color:lavender;
+}
