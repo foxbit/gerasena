@@ -10,19 +10,19 @@
 </head>
 <body>
 
-<div class="card container px-4" style="width: 350px;">
+<div class="card container p-4 card-style">
     <div class="row gx-5">
       <div class="col">
         <img  class="p-3" src="assets/logo_gera_sena_final.svg" alt="GeraSena" width="100%">
        <div class="p-3 border bg-light">
            <label for="customRange3" class="form-label">Quantidade de jogos: <strong>1</strong></label>
-            <input type="range" class="form-range" min="1" max="10" step="1" id="customRange3">
+            <input type="range" class="form-range" min="1" max="10" step="1" id="gameNumbersRange">
         </div>
        <div class="p-3"> 
            <button type="button" class="btn btn-primary w-100">Gerar Sena!</button>
         </div>
-        <div class="p-3">
-            <div id="SenaResultArea">
+        <div class="p-3" id="SenaResultArea">
+            <div>
                 <span class="senaResultBox">03</span>
                 <span class="senaResultBox">12</span>
                 <span class="senaResultBox">22</span>
@@ -35,7 +35,7 @@
     </div>
   </div>
 
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="js/gerasena.js"></script>
 </body>
 </html>
