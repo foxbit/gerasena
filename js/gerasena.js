@@ -46,6 +46,7 @@ let button = document.querySelector("button");
                      
             
             divSenaResultArea.style.display = "block";
+            divSenaResultArea.style.display = "flex";
             
         }
         
