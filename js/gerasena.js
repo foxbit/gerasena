@@ -1,8 +1,4 @@
-let divSenaResultArea = document.getElementById("SenaResultArea")
-
-function mostrarSena () {
-    divSenaResultArea.style.display = "block";
-}
+let divSenaResultArea = document.getElementById("senaResultArea")
 
 
 let button = document.querySelector("button");
@@ -43,32 +39,13 @@ let button = document.querySelector("button");
             }
 
             megaSena.sort(function(a, b){return a - b});
-            alert("Os números da sorte são: " + megaSena);
+
+            for (i = 0; i < quantidadeMaximaDeNumeros; i++) {
+                $('<div class="senaResultItem" />').text(megaSena[i]).appendTo(divSenaResultArea);
+              }
+                     
+            
+            divSenaResultArea.style.display = "block";
+            
         }
         
-
-/*
-let generateButton = document.getElementById("generateButton");
-let gameNumbersRange = document.getElementById("gameNumbersRange");
-
-
-function generateRandomNumbers(min, max, count) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    const randomNumbers = [];
-
-    for (let i = 0; i < count; i++) {
-
-        do {
-            randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-            numberAlreadyGenerated = randomNumbers.indexOf(randomNumber) >= 0;
-        } while (numberAlreadyGenerated);
-            
-        randomNumbers.push(randomNumber);
-    }
-
-    return randomNumbers;
-
-    console.log(randomNumbers)
-}
-*/
