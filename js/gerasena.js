@@ -42,14 +42,17 @@ function sorteiaNumeros() {
     let z = 0;
 
     while (z < qtdJogos) {
-        // Executa 5 vezes, com os valores de passos de 0 a 4.
+        // Executa a quantidade de jogos selecionados pelo usuário
         for (i = 0; i < quantidadeMaximaDeNumeros; i++) {
           $('<div class="senaResultItem" id="numero"/>').text(megaSena[i]).appendTo(divSenaResultArea);
-                 
+
+           sorteia();
+
           }
+          
           z++;
       } 
-                
+    
     
     divSenaResultArea.style.display = "block";
     divSenaResultArea.style.display = "flex";
