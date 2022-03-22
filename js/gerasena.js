@@ -26,7 +26,7 @@ function gerarJogos() {
     let jogos = [];
     
     for (let i = 0; i < qtdJogos; i++) {
-        jogos.push(generateRandomNumbers(0, 60, qtdDezenasPorJogo));
+        jogos.push(generateRandomNumbers(1, 60, qtdDezenasPorJogo));
     }
 
     exibirJogos(jogos);    
