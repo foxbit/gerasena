@@ -1,69 +1,46 @@
-let divSenaResultArea = document.getElementById("senaResultArea");
+function generateRandomNumbers(minNumber, maxNumber, numbersCount) {
+    minNumber = Math.ceil(minNumber);
+    maxNumber = Math.floor(maxNumber);
+    numbersCount = numbersCount > 0 ? numbersCount : 1;
+    const randomNumbers = [];
 
 
+    for (let i = 0; i < numbersCount; i++) {
+        let randomNumber = null;
+        let numberAlreadyGenerated = null;
 
-function sorteia() {
-   return Math.floor(Math.random() * 60) + 1;
+        do {
+            randomNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+            numberAlreadyGenerated = randomNumbers.indexOf(randomNumber) >= 0;
+        } while (numberAlreadyGenerated);
+            
+        randomNumbers.push(randomNumber);
+    }
+
+    return randomNumbers.sort(function(a, b) { return a - b; });
 }
 
-
-
-function sorteiaNumeros() {
-    
+function gerarJogos() {
     let qtdJogos = document.getElementById("myRange").value;
-    let megaSena = [];
-    let numero = 1;
-    let quantidadeMaximaDeNumeros = 6;
+    let qtdDezenasPorJogo = 6;
+    let jogos = [];
+    
+    for (let i = 0; i < qtdJogos; i++) {
+        jogos.push(generateRandomNumbers(0, 60, qtdDezenasPorJogo));
+    }
 
-    while(numero <= quantidadeMaximaDeNumeros) {
+    exibirJogos(jogos);    
+}
 
-        let numerosSorteados = sorteia();
-        let achou = false;
+function exibirJogos(jogos) {
+    let divSenaResultArea = document.getElementById("senaResultArea");
+    divSenaResultArea.innerHTML = '';
 
-            for(posicao = 0; posicao < megaSena.length; posicao++) {
-
-                if(megaSena[posicao] == numerosSorteados) {
-
-                    achou = true;
-                    break;
-                }
-            }
-
-            if(achou == false) {
-
-                megaSena.push(numerosSorteados);
-                numero++;
-            }
-
+    for (let jogo of jogos) {
+        for (let dezena of jogo) {
+            $('<div class="senaResultItem" id="numero"/>').text(dezena).appendTo(divSenaResultArea);
         }
+    }
 
-    megaSena.sort(function(a, b){return a - b});
-
-    let z = 0;
-
-    while (z < qtdJogos) {
-        // Executa a quantidade de jogos selecionados pelo usuário
-        for (i = 0; i < quantidadeMaximaDeNumeros; i++) {
-          $('<div class="senaResultItem" id="numero"/>').text(megaSena[i]).appendTo(divSenaResultArea);
-
-           sorteia();
-
-          }
-          
-          z++;
-      } 
-    
-    
-    divSenaResultArea.style.display = "block";
     divSenaResultArea.style.display = "flex";
-    
 }
-
-
-
-/*
-function limpaResultados() {
-    let numeroDiv = document.getElementById("numero");
-    numeroDiv.remove();
-}
-*/
